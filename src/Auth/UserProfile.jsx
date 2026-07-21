@@ -10,11 +10,9 @@ import {
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-
 const UserProfile = () => {
   const { user, updateUserProfile } = useAuth();
   const [isEdit, setIsEdit] = useState(false);
-  
 
   const [formData, setFormData] = useState({
     displayName: user?.displayName || "",
@@ -53,111 +51,95 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 text-gray-800">
-      <div className="w-full max-w-2xl bg-white shadow-xl rounded-2xl overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center  p-4 text-white">
+
+      <div className="w-full max-w-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-2xl overflow-hidden">
+
         {/* HEADER */}
-        <div className="lg:h-32 h-24 bg-gradient-to-r from-blue-600 to-indigo-600 relative">
+        <div className="h-32 bg-gradient-to-r from-cyan-500 to-blue-600 relative">
+
           {/* PROFILE PIC */}
-          <div className="absolute flex items-center lg:mt-[82px] mt-[65px] lg:ml-8 ml-4 text-center">
-            <div className="">
-              <img
-                src={formData.photoURL || user?.photoURL}
-                alt="profile"
-                className="lg:w-28 lg:h-28 w-20 h-20 rounded-full border-4 border-amber-500 object-cover"
-              />
-            </div>
+          <div className="absolute -bottom-12 left-6 flex items-center gap-4">
+            <img
+              src={formData.photoURL || user?.photoURL}
+              alt="profile"
+              className="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg hover:scale-105 transition"
+            />
 
-            <div className="ml-2">
-              {/* ALWAYS SHOW NAME */}
-              <div>
-                <h2 className="mt-5 font-bold flex items-center justify-start gap-2 ">
-                  <FaUser className="text-blue-500" />
-                  {user?.displayName}
-                </h2>
-              </div>
+            <div>
+              <h2 className="text-lg font-bold flex items-center gap-2">
+                <FaUser className="text-white" />
+                {user?.displayName}
+              </h2>
 
-              {/* ALWAYS SHOW EMAIL */}
-              <div>
-                <p className="text-sm text-gray-600 flex items-center justify-start gap-2">
-                  <FaEnvelope className="text-indigo-500" />
-                  {user?.email}
-                </p>
-              </div>
+              <p className="text-sm text-gray-200 flex items-center gap-2">
+                <FaEnvelope />
+                {user?.email}
+              </p>
             </div>
-            
           </div>
         </div>
 
         {/* BODY */}
-        <div className="pt-20 p-6">
-          {/* EDIT SECTION */}
-          {isEdit && (
-            <div className="space-y-3">
-              <div>
-                <label className="text-sm text-gray-500">Name</label>
-                <input
-                  name="displayName"
-                  value={formData.displayName}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2 rounded input-class"
-                />
-              </div>
+        <div className="pt-16 p-6">
 
-              <div>
-                <label className="text-sm text-gray-500">Photo URL</label>
-                <input
-                  name="photoURL"
-                  value={formData.photoURL}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2 rounded input-class"
-                />
-              </div>
+          {/* EDIT FORM */}
+          {isEdit && (
+            <div className="space-y-3 mb-5">
+
+              <input
+                name="displayName"
+                value={formData.displayName}
+                onChange={handleChange}
+                placeholder="Name"
+                className="w-full px-3 py-2 rounded bg-white/10 border border-white/20 text-white placeholder-gray-300"
+              />
+
+              <input
+                name="photoURL"
+                value={formData.photoURL}
+                onChange={handleChange}
+                placeholder="Photo URL"
+                className="w-full px-3 py-2 rounded bg-white/10 border border-white/20 text-white placeholder-gray-300"
+              />
             </div>
           )}
 
-          {/* INFO GRID (ALWAYS SHOW) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            {/* ROLE */}
-            <div className="p-4 rounded-xl bg-gray-50 border hover:shadow-md transition">
-              <p className="text-sm text-gray-500 mb-1 flex items-center gap-1">
-                <FaUserTag className="text-indigo-500" /> Role
-              </p>
+          {/* INFO GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-              <div className="flex items-center justify-between">
-                N/A
-              </div>
+            <div className="p-4 rounded-xl bg-white/10 border border-white/20 hover:scale-[1.02] transition">
+              <p className="text-sm text-gray-300 flex items-center gap-1">
+                <FaUserTag /> Role
+              </p>
+              <p className="mt-1 font-medium">N/A</p>
             </div>
 
-            {/* ACCOUNT STATUS */}
-            <div className="p-4 rounded-xl bg-gray-50 border hover:shadow-md transition">
-              <p className="text-sm text-gray-500 flex items-center gap-1">
-                <FaCheckCircle className="text-green-500" /> Account Type
+            <div className="p-4 rounded-xl bg-white/10 border border-white/20 hover:scale-[1.02] transition">
+              <p className="text-sm text-gray-300 flex items-center gap-1">
+                <FaCheckCircle /> Account
               </p>
-
-              <p className="font-medium text-green-600 mt-1">Active User</p>
+              <p className="mt-1 text-green-400 font-medium">Active User</p>
             </div>
 
-            {/* USER ID */}
-            <div className="p-4 rounded-xl bg-gray-50 border hover:shadow-md transition">
-              <p className="text-sm text-gray-500 flex items-center gap-1">
-                <FaIdBadge className="text-blue-500" /> User ID
+            <div className="p-4 rounded-xl bg-white/10 border border-white/20 hover:scale-[1.02] transition">
+              <p className="text-sm text-gray-300 flex items-center gap-1">
+                <FaIdBadge /> User ID
               </p>
-
-              <p className="font-medium break-all mt-1">{user?.uid}</p>
+              <p className="mt-1 text-sm break-all">{user?.uid}</p>
             </div>
 
-            {/* LAST LOGIN */}
-            <div className="p-4 rounded-xl bg-gray-50 border hover:shadow-md transition">
-              <p className="text-sm text-gray-500 flex items-center gap-1">
-                <FaCalendarAlt className="text-orange-500" /> Last Login
+            <div className="p-4 rounded-xl bg-white/10 border border-white/20 hover:scale-[1.02] transition">
+              <p className="text-sm text-gray-300 flex items-center gap-1">
+                <FaCalendarAlt /> Last Login
               </p>
-
-              <p className="font-medium text-sm mt-1">
+              <p className="mt-1 text-sm">
                 {user?.metadata?.lastSignInTime
                   ? new Date(user.metadata.lastSignInTime).toLocaleString()
                   : "N/A"}
               </p>
             </div>
+
           </div>
 
           {/* BUTTONS */}
@@ -165,7 +147,7 @@ const UserProfile = () => {
             {!isEdit ? (
               <button
                 onClick={() => setIsEdit(true)}
-                className="px-4 py-2 bg-blue-600 text-white rounded"
+                className="px-5 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md transition"
               >
                 Edit Profile
               </button>
@@ -173,20 +155,21 @@ const UserProfile = () => {
               <>
                 <button
                   onClick={handleSave}
-                  className="px-4 py-2 bg-green-600 text-white rounded"
+                  className="px-5 py-2 bg-green-500 hover:bg-green-600 rounded-lg shadow-md transition"
                 >
                   Save
                 </button>
 
                 <button
                   onClick={handleCancel}
-                  className="px-4 py-2 border rounded"
+                  className="px-5 py-2 bg-gray-500 hover:bg-gray-600 rounded-lg shadow-md transition"
                 >
                   Cancel
                 </button>
               </>
             )}
           </div>
+
         </div>
       </div>
     </div>

@@ -1,12 +1,10 @@
 import React, {} from 'react';
-
-import AddJob from '../Pagas/AddJob';
+import Banner from "../Component/Banner"
 
 const Home = () => {
-    
     return (
         <div>
-            
+            <Banner></Banner>
         </div>
     );
 };

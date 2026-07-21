@@ -1,70 +1,109 @@
 import React from "react";
-// import logoImg from "../assets/logo.png";
 import { FaXTwitter } from "react-icons/fa6";
-import { CiLinkedin } from "react-icons/ci";
+import { CiLinkedin, CiYoutube } from "react-icons/ci";
 import { FaFacebookF } from "react-icons/fa";
-import { CiYoutube } from "react-icons/ci";
 import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <div className="bg-accent-content py-20 text-white">
-      <div className="lg:ml-0 mx-5">
-        <div className="flex lg:justify-center relative ml-3">
-          
-        <Logo />
+    <footer className=" backdrop-blur-xl bg-gradient-to-r from-sky-800/50 via-sky-900/50 to-sky-800/50 border-t border-white/10 text-white">
+      
+      <div className="max-w-6xl mx-auto px-6 py-12">
+
+        {/* 🔹 Top Section */}
+        <div className="flex flex-col md:flex-row justify-between gap-10">
+
+          {/* Logo + About */}
+          <div>
+            <Logo />
+            <p className="mt-4 text-sm text-gray-300 max-w-sm">
+              Track your job applications, monitor progress, and stay organized.
+              Your smart companion to land your dream job faster.
+            </p>
+          </div>
+
+          {/* Links */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+
+            <div>
+              <h3 className="font-semibold mb-3 text-white">Product</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Add Job</a></li>
+                <li><a href="#">Applications</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3 text-white">Company</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3 text-white">Support</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
-        <p className="lg:text-center pt-5">
-          Enjoy fast, reliable parcel delivery with real-time tracking and zero
-          hassle. From personal packages to <br /> business shipments — we
-          deliver on time, every time.
-        </p>
 
-        <ul className="flex lg:flex-row flex-col lg:justify-center lg:gap-6 gap-3 py-10">
-          <li>
-            <a href="">Service</a>
-          </li>
-          <li>
-            <a href="">Coverage</a>
-          </li>
-          <li>
-            <a href="">About Us</a>
-          </li>
-          <li>
-            <a href="">Pricing</a>
-          </li>
-          <li>
-            <a href="">Blog</a>
-          </li>
-          <li>
-            <a href="">Contact</a>
-          </li>
-        </ul>
+        {/* 🔹 Divider */}
+        <div className="border-t border-white/10 my-8"></div>
 
-        <ul className="flex lg:justify-center gap-6">
-          <li className="backdrop-blur-lg bg-white/10 p-3 rounded-full animate-pulse">
-            <a className="text-[#3074a6] text-3xl" href="https://www.linkedin.com/" target="_blank">
-              <CiLinkedin />
+        {/* 🔹 Bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} Job Tracker. All rights reserved.
+          </p>
+
+          {/* Social Icons */}
+          <div className="flex gap-5">
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
+            >
+              <CiLinkedin className="text-2xl text-blue-400" />
             </a>
-          </li>
-          <li className="backdrop-blur-lg bg-white/10 p-3 rounded-full animate-pulse">
-            <a className="text-black text-3xl" href="https://x.com/" target="_blank">
-              <FaXTwitter />
+
+            <a
+              href="https://x.com/"
+              target="_blank"
+              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
+            >
+              <FaXTwitter className="text-2xl" />
             </a>
-          </li>
-          <li className="backdrop-blur-lg bg-white/10 p-3 rounded-full animate-pulse">
-            <a className="text-[#1a8ae4] text-3xl" href="https://www.facebook.com/groups/1001798088430659/members" target="_blank">
-              <FaFacebookF />
+
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
+            >
+              <FaFacebookF className="text-xl text-blue-500" />
             </a>
-          </li>
-          <li className="backdrop-blur-lg bg-white/10 p-3 rounded-full animate-pulse">
-            <a className="text-[#ff0000] text-3xl" href="https://www.youtube.com/" target="_blank">
-              <CiYoutube />
+
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
+            >
+              <CiYoutube className="text-2xl text-red-500" />
             </a>
-          </li>
-        </ul>
+
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

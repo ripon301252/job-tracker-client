@@ -30,16 +30,20 @@ const Navbar = () => {
   const activeLinks = (isActive) =>
     `px-3 py-2 text-sm font-medium flex items-center gap-1 transition-all duration-300 ${
       isActive
-        ? "text-gray-800 text-xs bg-green-300 rounded-lg"
-        : "text-xs dark:text-gray-200 hover:bg-green-300 hover:text-gray-800 rounded-lg"
+        ? "text-gray-800 text-xs bg-sky-500/70 rounded-lg"
+        : "text-xs dark:text-gray-200 hover:bg-sky-500/70 hover:text-gray-800 rounded-lg"
     }`;
 
-  // 🔗 Required Links (Job Tracker অনুযায়ী)
   const navLinks = (
     <>
       <NavLink to="/" className={({ isActive }) => activeLinks(isActive)}>
         <MdOutlineHome size={18} />
         Home
+      </NavLink>
+
+      <NavLink to="/addJob" className={({ isActive }) => activeLinks(isActive)}>
+        <PlusCircle size={18} />
+        Add Job
       </NavLink>
 
       {user && (
@@ -51,34 +55,22 @@ const Navbar = () => {
             <Briefcase size={18} />
             My Applications
           </NavLink>
-
-          <NavLink
-            to="/addJob"
-            className={({ isActive }) => activeLinks(isActive)}
-          >
-            <PlusCircle size={18} />
-            Add Job
-          </NavLink>
         </>
       )}
     </>
   );
 
   return (
-    <nav className="sticky top-0 backdrop-blur bg-white dark:bg-gradient-to-r from-sky-800 via-sky-900 to-sky-800 shadow-sm z-[999] max-w-6xl mx-auto py-1 md:mt-2 md:rounded-2xl">
+    <nav className="sticky top-0 backdrop-blur bg-gradient-to-r from-sky-800/50 via-sky-900/50 to-sky-800/50 shadow-sm z-[999] max-w-6xl mx-auto py-1 md:mt-2 md:rounded-2xl">
       <div className="max-w-[1100px] lg:mx-auto py-4 flex justify-between items-center mx-2">
-        
         {/* Logo */}
         <Logo />
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-3 items-center">
-          {navLinks}
-        </div>
+        <div className="hidden md:flex gap-3 items-center">{navLinks}</div>
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-
           {/* Avatar / Login */}
           <div
             className="relative hidden lg:inline-flex"
@@ -100,7 +92,7 @@ const Navbar = () => {
                 {avatarOpen && (
                   <div
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute -right-16 mt-15 w-52 bg-white dark:bg-[#03373d] shadow-xl rounded-xl p-3 z-50"
+                    className="absolute -right-7 mt-15 w-52 bg-gradient-to-r from-sky-800/50 via-sky-900/50 to-sky-800/50 shadow-xl rounded-xl p-3 z-50"
                   >
                     <p className="font-semibold text-gray-800 dark:text-white">
                       {user?.displayName || "User"}
@@ -113,7 +105,7 @@ const Navbar = () => {
 
                     <Link
                       to="/profile"
-                      className="flex gap-1 items-center px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-sm"
+                      className="flex gap-1 items-center px-3 py-2 rounded hover:bg-sky-500/30 text-sm"
                     >
                       <UserPen size={18} />
                       Profile
@@ -121,7 +113,7 @@ const Navbar = () => {
 
                     <Link
                       to="/dashboard"
-                      className="flex gap-1 items-center px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-sm"
+                      className="flex gap-1 items-center px-3 py-2 rounded hover:bg-sky-500/30 text-sm"
                     >
                       <LayoutDashboard size={18} />
                       Dashboard
@@ -129,7 +121,7 @@ const Navbar = () => {
 
                     <button
                       onClick={handleLogout}
-                      className="w-full flex gap-1 items-center text-left px-3 py-2 rounded hover:bg-red-100 text-red-500 text-sm"
+                      className="w-full flex gap-1 items-center text-left px-3 py-2 rounded hover:bg-red-200 text-red-500 text-sm"
                     >
                       <LogOut size={18} />
                       Logout
@@ -160,7 +152,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-xl border-t z-50">
+        <div className="md:hidden absolute top-full left-0 w-full bg-gradient-to-r from-sky-800 via-sky-900 to-sky-800 shadow-xl border-t z-50">
           <div className="flex flex-col p-4 space-y-3">
             {navLinks}
 

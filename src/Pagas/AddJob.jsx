@@ -36,106 +36,143 @@ const AddJob = () => {
       status,
     } = formData;
 
-    // ✅ Required validation
-    if (
-      !companyName ||
-      !jobTitle ||
-      !jobUrl ||
-      !source ||
-      !applicationDate ||
-      !status
-    ) {
-      return toast.error("All field is required   ");
+    if (!companyName || !jobTitle || !jobUrl || !source || !applicationDate || !status) {
+      return toast.error("All fields are required");
     }
 
     try {
       const jobData = {
         ...formData,
-        userEmail: user?.email, // 🔐 ownership
+        userEmail: user?.email,
       };
 
       await axiosAddJob.post("/applications", jobData);
 
-      toast.success("Job Added Successfully ");
+      toast.success("Job Added Successfully 🚀");
       navigate("/myApplications");
     } catch (error) {
-      toast.error( error, "Failed to add job ");
+      toast.error("Failed to add job");
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-white dark:bg-[#03373d] shadow-lg rounded-xl">
-      <h2 className="text-xl font-bold mb-4 text-center dark:text-white">
-        Add Job Application
-      </h2>
+    <div className="min-h-screen flex items-center justify-center px-4 py-10">
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="w-full max-w-2xl p-8 rounded-2xl
+      backdrop-blur-xl bg-white/5 border border-white/10
+      shadow-2xl text-white">
 
-        <input
-          name="companyName"
-          placeholder="Company Name"
-          value={formData.companyName}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        />
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6
+        bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          Add Job Application
+        </h2>
 
-        <input
-          name="jobTitle"
-          placeholder="Job Title"
-          value={formData.jobTitle}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        />
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        <input
-          name="jobUrl"
-          placeholder="Job URL"
-          value={formData.jobUrl}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        />
+          {/* Company */}
+          <input
+            name="companyName"
+            placeholder="Company Name"
+            value={formData.companyName}
+            onChange={handleChange}
+            className="inputGlass"
+          />
 
-        <input
-          name="source"
-          placeholder="Source (LinkedIn, Bdjobs...)"
-          value={formData.source}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        />
+          {/* Job Title */}
+          <input
+            name="jobTitle"
+            placeholder="Job Title"
+            value={formData.jobTitle}
+            onChange={handleChange}
+            className="inputGlass"
+          />
 
-        <input
-          type="date"
-          name="applicationDate"
-          value={formData.applicationDate}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        />
+          {/* URL */}
+          <input
+            name="jobUrl"
+            placeholder="Job URL"
+            value={formData.jobUrl}
+            onChange={handleChange}
+            className="inputGlass md:col-span-2"
+          />
 
-        <select
-          name="status"
-          value={formData.status}
-          onChange={handleChange}
-          className="select select-bordered w-full"
-        >
-          <option value="applied">Applied</option>
-          <option value="interview">Interview</option>
-          <option value="assessment">Assessment</option>
-          <option value="rejected">Rejected</option>
-          <option value="offer">Offer</option>
-        </select>
+          {/* Source */}
+          <input
+            name="source"
+            placeholder="Source (LinkedIn, Bdjobs...)"
+            value={formData.source}
+            onChange={handleChange}
+            className="inputGlass"
+          />
 
-        <textarea
-          name="notes"
-          placeholder="Notes (optional)"
-          value={formData.notes}
-          onChange={handleChange}
-          className="textarea textarea-bordered w-full"
-        />
+          {/* Date */}
+          <input
+            type="date"
+            name="applicationDate"
+            value={formData.applicationDate}
+            onChange={handleChange}
+            className="inputGlass"
+          />
 
-        <button className="btn w-full bg-green-500 text-white hover:bg-green-600">
-          Add Job
-        </button>
-      </form>
+          {/* Status */}
+          <select
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+            className="inputGlass md:col-span-2"
+          >
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="rejected">Rejected</option>
+            <option value="offer">Offer</option>
+            <option value="recent-jobs">Recent Jobs</option>
+          </select>
+
+          {/* Notes */}
+          <textarea
+            name="notes"
+            placeholder="Notes (optional)"
+            value={formData.notes}
+            onChange={handleChange}
+            className="inputGlass md:col-span-2 h-24 resize-none"
+          />
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="md:col-span-2 py-3 rounded-lg font-semibold
+            bg-gradient-to-r from-green-400 to-blue-500
+            hover:scale-105 active:scale-95 transition shadow-lg"
+          >
+            Add Job 🚀
+          </button>
+        </form>
+      </div>
+
+      {/* 🔥 Reusable Glass Input Style */}
+      <style>
+        {`
+        .inputGlass {
+          width: 100%;
+          padding: 10px 14px;
+          border-radius: 10px;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          outline: none;
+          color: white;
+          transition: 0.3s;
+        }
+
+        .inputGlass::placeholder {
+          color: rgba(255,255,255,0.6);
+        }
+
+        .inputGlass:focus {
+          border: 1px solid rgba(34,197,94,0.7);
+          box-shadow: 0 0 10px rgba(34,197,94,0.3);
+        }
+        `}
+      </style>
     </div>
   );
 };
