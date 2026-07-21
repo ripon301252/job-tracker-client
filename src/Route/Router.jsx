@@ -7,6 +7,7 @@ import Register from "../Auth/Register";
 import ForgotPassword from "../Auth/ForgotPassword";
 import AddJob from "../Pagas/AddJob";
 import MyApplications from "../Pagas/MyApplications";
+import UserProfile from "../Auth/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "/myApplications",
         element: <MyApplications></MyApplications>
+      },
+      {
+        path: "/profile",
+        element: <UserProfile></UserProfile>
       },
     ],
   },

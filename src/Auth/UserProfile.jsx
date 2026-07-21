@@ -9,12 +9,12 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
-import useRole from "../Hooks/useRole";
+// import useRole from "../Hooks/useRole";
 
 const UserProfile = () => {
   const { user, updateUserProfile } = useAuth();
   const [isEdit, setIsEdit] = useState(false);
-  const { role } = useRole();
+  // const { role } = useRole();
 
   const [formData, setFormData] = useState({
     displayName: user?.displayName || "",
@@ -124,11 +124,11 @@ const UserProfile = () => {
               </p>
 
               <div className="flex items-center justify-between">
-                <p className="font-medium text-indigo-600 capitalize">{role}</p>
+                {/* <p className="font-medium text-indigo-600 capitalize">{role}</p> */}
 
-                <span className="px-2 py-1 text-xs bg-indigo-100 text-indigo-600 rounded-full">
+                {/* <span className="px-2 py-1 text-xs bg-indigo-100 text-indigo-600 rounded-full">
                   {role}
-                </span>
+                </span> */}
               </div>
             </div>
 
