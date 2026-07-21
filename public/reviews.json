@@ -1,0 +1,98 @@
+[
+  {
+    "user_email": "john.doe@example.com",
+    "userName": "John Doe",
+    "designation": "Business Owner",
+    "delivery_email": "delivery1@example.com",
+    "ratings": 4.5,
+    "review": "I had a really smooth experience with this delivery service. The parcel was picked up on time and delivered safely without any damage. The delivery rider was very polite and professional. I will definitely use this service again for my business shipments.",
+    "parcel_id": "5f47ac10b4f1c03e8c654321",
+    "pick_up_email": "pickup1@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/10.jpg",
+    "date": "2024-05-08T14:30:00.000Z"
+  },
+  {
+    "user_email": "jane.smith@example.com",
+    "userName": "Jane Smith",
+    "designation": "Online Shop Owner",
+    "delivery_email": "delivery2@example.com",
+    "ratings": 3.8,
+    "review": "The service was decent overall, but the delivery took a bit longer than I expected. However, the parcel arrived in good condition and the support team responded to my queries. If delivery time improves, it would be a great service.",
+    "parcel_id": "5f47ac10b4f1c03e8c765432",
+    "pick_up_email": "pickup2@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/women/25.jpg",
+    "date": "2024-06-10T10:15:00.000Z"
+  },
+  {
+    "user_email": "alex.brown@example.com",
+    "userName": "Alex Brown",
+    "designation": "E-commerce Seller",
+    "delivery_email": "delivery3@example.com",
+    "ratings": 5.0,
+    "review": "Absolutely excellent service! The delivery was super fast and everything was handled with great care. My customers are very happy, and that makes my business run smoothly. Highly recommended for anyone doing e-commerce.",
+    "parcel_id": "5f47ac10b4f1c03e8c876543",
+    "pick_up_email": "pickup3@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/34.jpg",
+    "date": "2024-07-01T08:50:00.000Z"
+  },
+  {
+    "user_email": "lisa.white@example.com",
+    "userName": "Lisa White",
+    "designation": "Fashion Boutique Owner",
+    "delivery_email": "delivery4@example.com",
+    "ratings": 4.2,
+    "review": "Very professional service and good communication throughout the process. The parcel reached the customer on time and in perfect condition. I appreciate the responsiveness of the team and their commitment to quality service.",
+    "parcel_id": "5f47ac10b4f1c03e8c987654",
+    "pick_up_email": "pickup4@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/women/12.jpg",
+    "date": "2024-07-15T09:10:00.000Z"
+  },
+  {
+    "user_email": "david.lee@example.com",
+    "userName": "David Lee",
+    "designation": "Freelancer",
+    "delivery_email": "delivery5@example.com",
+    "ratings": 2.9,
+    "review": "Unfortunately, my experience was not great this time. The delivery was delayed and I did not receive timely updates about the parcel status. I hope the service improves in the future because reliability is very important.",
+    "parcel_id": "5f47ac10b4f1c03e8c098765",
+    "pick_up_email": "pickup5@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/19.jpg",
+    "date": "2024-08-02T16:45:00.000Z"
+  },
+  {
+    "user_email": "nina.khan@example.com",
+    "userName": "Nina Khan",
+    "designation": "Small Business Owner",
+    "delivery_email": "delivery6@example.com",
+    "ratings": 4.9,
+    "review": "Amazing experience! The whole process from pickup to delivery was seamless and very fast. I am extremely satisfied with the professionalism and care shown by the delivery team. Highly recommended for business owners.",
+    "parcel_id": "5f47ac10b4f1c03e8c109876",
+    "pick_up_email": "pickup6@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/women/8.jpg",
+    "date": "2024-08-10T12:00:00.000Z"
+  },
+  {
+    "user_email": "michael.jordan@example.com",
+    "userName": "Michael Jordan",
+    "designation": "Retail Shop Owner",
+    "delivery_email": "delivery7@example.com",
+    "ratings": 3.3,
+    "review": "The service is okay but there is room for improvement. The packaging quality could be better and delivery time needs to be more consistent. Still, the staff behavior was good and cooperative.",
+    "parcel_id": "5f47ac10b4f1c03e8c210987",
+    "pick_up_email": "pickup7@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/22.jpg",
+    "date": "2024-08-14T18:20:00.000Z"
+  },
+  {
+    "user_email": "emma.watson@example.com",
+    "userName": "Emma Watson",
+    "designation": "Entrepreneur",
+    "delivery_email": "delivery8@example.com",
+    "ratings": 4.7,
+    "review": "Very fast and reliable delivery service. The parcel arrived safely and the customer was very happy. The team is friendly and efficient. I will continue using this service for my future deliveries.",
+    "parcel_id": "5f47ac10b4f1c03e8c321098",
+    "pick_up_email": "pickup8@example.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/women/5.jpg",
+    "date": "2024-08-20T07:30:00.000Z"
+  }
+]
