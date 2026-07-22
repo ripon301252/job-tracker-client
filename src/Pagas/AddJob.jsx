@@ -27,16 +27,17 @@ const AddJob = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const {
-      companyName,
-      jobTitle,
-      jobUrl,
-      source,
-      applicationDate,
-      status,
-    } = formData;
+    const { companyName, jobTitle, jobUrl, source, applicationDate, status } =
+      formData;
 
-    if (!companyName || !jobTitle || !jobUrl || !source || !applicationDate || !status) {
+    if (
+      !companyName ||
+      !jobTitle ||
+      !jobUrl ||
+      !source ||
+      !applicationDate ||
+      !status
+    ) {
       return toast.error("All fields are required");
     }
 
@@ -46,8 +47,7 @@ const AddJob = () => {
         userEmail: user?.email,
       };
 
-      await axiosAddJob.post("/applications", jobData);
-
+      await axiosAddJob.post("/api/applications", jobData);
       toast.success("Job Added Successfully ");
       navigate("/myApplications");
     } catch (error) {
@@ -57,18 +57,22 @@ const AddJob = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-10">
-
-      <div className="w-full max-w-2xl p-8 rounded-2xl
+      <div
+        className="w-full max-w-2xl p-8 rounded-2xl
       backdrop-blur-xl bg-white/5 border border-white/10
-      shadow-2xl text-white">
-
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6
-        bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+      shadow-2xl text-white"
+      >
+        <h2
+          className="text-2xl md:text-3xl font-bold text-center mb-6
+        bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"
+        >
           Add Job Application
         </h2>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
           {/* Company */}
           <input
             name="companyName"
@@ -144,7 +148,7 @@ const AddJob = () => {
             bg-gradient-to-r from-green-400 to-blue-500
             hover:scale-105 active:scale-95 transition shadow-lg"
           >
-            Add Job 
+            Add Job
           </button>
         </form>
       </div>

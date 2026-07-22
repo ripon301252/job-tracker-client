@@ -34,7 +34,7 @@ const MyApplications = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axiosMyApplications.get("/applications", {
+        const res = await axiosMyApplications.get("/api/applications", {
           params: {
             status,
             search,
@@ -90,7 +90,7 @@ const MyApplications = () => {
   const handleUpdate = async (id) => {
     try {
       const res = await axiosMyApplications.patch(
-        `/applications/${id}`,
+        `/api/applications/${id}`,
         editData,
       );
 
@@ -133,7 +133,7 @@ const MyApplications = () => {
     if (!result.isConfirmed) return;
 
     try {
-      await axiosMyApplications.delete(`/applications/${id}`);
+      await axiosMyApplications.delete(`/api/applications/${id}`);
 
       Swal.fire({
         title: "Deleted!",

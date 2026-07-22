@@ -104,7 +104,7 @@ const Register = () => {
                 photoURL: photoURL,
                 createdAt: new Date()
             }
-            const dbRes = await axiosRegister.post('/users', userInfo);
+            const dbRes = await axiosRegister.post('/api/users', userInfo);
             if (dbRes.data.insertedId) {
                 console.log(' user created in the database');
             } else {

@@ -5,10 +5,11 @@ import { useNavigate } from "react-router";
 import { getAuth } from "firebase/auth";
 
 const axiosSecure = axios.create({
-  baseURL:
-    import.meta.env.MODE === "development"
-      ? "/api"
-      : "https://job-tracker-server-2.onrender.com",
+   baseURL: "https://job-tracker-server-2.onrender.com/"
+  // baseURL:
+  //   import.meta.env.MODE === "development"
+  //     ? "/api"
+  //     : "https://job-tracker-server-2.onrender.com",
 });
 
 
