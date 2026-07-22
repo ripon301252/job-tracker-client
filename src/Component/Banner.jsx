@@ -24,7 +24,7 @@ const Banner = () => {
             <img
               src={img}
               alt="banner"
-              className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+              className="w-full h-[450px] md:h-[500px] lg:h-[600px] object-cover"
             />
 
             {/* 🔥 Overlay */}
@@ -34,7 +34,7 @@ const Banner = () => {
             <div className="absolute inset-0 flex items-center justify-center px-4">
               <div
                 className="backdrop-blur-xl bg-white/5 border border-white/10 
-              rounded-2xl p-6 md:p-10 text-center text-white max-w-3xl"
+              rounded-2xl p-6 md:p-10 text-center text-white max-w-3xl -mb-23"
               >
                 {/* 🔥 Heading */}
                 <h1
