@@ -9,7 +9,7 @@ const Dashboard = () => {
 
    useEffect(() => {
     const loadData = async () => {
-      const res = await axiosDashboard.get("/dashboard/stats");
+      const res = await axiosDashboard.get("/api/dashboard/stats");
       setStats(res.data);
     };
 
