@@ -69,7 +69,7 @@ const Footer = () => {
           <div className="flex gap-5">
 
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/mahfuzur-rahman-280471392/"
               target="_blank"
               className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
             >
@@ -85,7 +85,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/profile.php?id=100089627922381"
               target="_blank"
               className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
             >

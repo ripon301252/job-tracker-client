@@ -214,12 +214,12 @@ const MyApplications = () => {
             placeholder="Search company..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="input input-bordered w-full bg-white/5 flex-[2]"
+            className="input input-bordered w-full py-2 bg-white/5 flex-[5]"
           />
 
           {/* 🔽 Filter (SMALLER) */}
           <select
-            className="select select-bordered w-full bg-white/90 text-black flex-[1]"
+            className="select select-bordered w-full py-2 bg-white/90 text-black flex-[2]"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
@@ -237,7 +237,7 @@ const MyApplications = () => {
             <button
               onClick={handlePDF}
               className="relative py-2 rounded-sm font-semibold text-white
-      bg-gradient-to-r from-green-500/50 to-emerald-500 w-full
+      bg-gradient-to-r from-green-500/50 to-emerald-500 w-full cursor-pointer
       hover:scale-105 active:scale-95 transition shadow-lg flex items-center justify-center gap-2"
             >
               <HiOutlineDocumentArrowDown className="text-xl" />
