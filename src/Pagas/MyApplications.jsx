@@ -42,6 +42,7 @@ const MyApplications = () => {
         });
 
         setJobs(res.data);
+        console.log(res.data);
         setCurrentPage(1);
       } catch (error) {
         // 🔥 error check
