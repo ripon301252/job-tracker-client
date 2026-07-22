@@ -62,7 +62,7 @@ const Login = () => {
                 </h1>
 
                 <p className='text-center text-gray-600 mb-5'>
-                    Thanks for staying with the <span className='font-semibold text-green-600'>SpeedyParcel</span> family
+                    Thanks for staying with the <span className='font-semibold text-sky-600'>Job Tracker</span> family
 
                 </p>
 
@@ -89,7 +89,7 @@ const Login = () => {
 
                             <button
                                 onClick={handleTogglePasswordShow}
-                                className='absolute top-2 right-3 text-green-600 text-xl cursor-pointer'>
+                                className='absolute top-2 right-3 text-sky-600 text-xl cursor-pointer'>
                                 {showPassword ? <IoEyeOff /> : <IoEye />}
                             </button>
                         </div>
@@ -97,13 +97,13 @@ const Login = () => {
 
                     {/* Forgot Password */}
                     <div>
-                        <Link to={`/forgot-password`} className="text-sm text-gray-500 font-semibold hover:text-green-600 cursor-pointer">
+                        <Link to={`/forgot-password`} className="text-sm text-gray-500 font-semibold hover:text-sky-600 cursor-pointer">
                             Forgot password?
                         </Link>
                     </div>
 
                     {/* Login Button */}
-                    <button  type='submit' className="btn w-full text-gray-800 mt-4 rounded-lg border  font-semibold hover:bg-gray-100 shadow-md bg-gradient-to-r border-green-500 from-green-500 to-green-300 cursor-pointer hover:scale-102 transition-transform">
+                    <button  type='submit' className="btn w-full text-gray-800 mt-4 rounded-lg border  font-semibold hover:bg-gray-100 shadow-md bg-gradient-to-r border-sky-500 from-sky-500 to-sky-300 cursor-pointer hover:scale-102 transition-transform">
                         Login
                     </button>
 
@@ -138,7 +138,7 @@ const Login = () => {
                 {/* Register Link */}
                 <p className='text-center text-gray-600 mt-4'>
                     Already have an account?
-                    <Link state={location.state} to={`/register`} className='text-green-600 font-semibold hover:underline ml-1'>
+                    <Link state={location.state} to={`/register`} className='text-sky-600 font-semibold hover:underline ml-1'>
                         Register
                     </Link>
                 </p>

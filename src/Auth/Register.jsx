@@ -161,7 +161,7 @@ const Register = () => {
                 </h1>
 
                 <p className='text-center text-gray-600 mb-5'>
-                    Join <span className='font-semibold text-green-600'>SpeedyParcel</span> today!
+                    Join <span className='font-semibold text-sky-600'>Job Tracker</span> today!
                 </p>
 
                 <form onSubmit={handleSignUp} className='space-y-3'>
@@ -228,7 +228,7 @@ const Register = () => {
 
                             <button
                                 onClick={handleTogglePasswordShow}
-                                className='absolute top-2 right-3 text-green-600 text-xl cursor-pointer'>
+                                className='absolute top-2 right-3 text-sky-600 text-xl cursor-pointer'>
                                 {showPassword ? <IoEyeOff /> : <IoEye />}
                             </button>
                         </div>
@@ -241,7 +241,7 @@ const Register = () => {
 
                         type='submit'
                         disabled={loading}
-                        className={`btn w-full text-gray-800 mt-4 rounded-lg border font-semibold hover:bg-gray-100 shadow-md bg-gradient-to-r border-green-500 from-green-500 to-green-300 cursor-pointer hover:scale-102 transition-transform ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+                        className={`btn w-full text-gray-800 mt-4 rounded-lg border font-semibold hover:bg-gray-100 shadow-md bg-gradient-to-r border-sky-500 from-sky-500 to-sky-300 cursor-pointer hover:scale-102 transition-transform ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                     >
                         {loading ? "Creating..." : "Register"}
                     </button>
@@ -313,13 +313,13 @@ const Register = () => {
                 {/* Login Link */}
                 <p className='text-center text-gray-600 mt-4'>
                     Already have an account?
-                    <Link state={location.state} to={`/login`} className='text-green-600 font-semibold hover:underline ml-1'>
+                    <Link state={location.state} to={`/login`} className='text-sky-600 font-semibold hover:underline ml-1'>
                         Login
                     </Link>
                 </p>
 
                 {success && (
-                    <p className="text-green-500 text-center font-semibold">
+                    <p className="text-sky-500 text-center font-semibold">
                         Account created successfully!
                     </p>
                 )}

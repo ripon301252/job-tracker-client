@@ -61,14 +61,14 @@ const ForgotPassword = () => {
                         placeholder="Enter your email"
                         required />
                 </div>
-                <button onClick={handleReset} className='btn btn-primary w-full bg-linear-to-r from-green-500 via-green-400  to-green-500  transition-all duration-300 font-semibold hover:scale-105 border-none text-gray-800 rounded-lg'>Send Reset Link</button>
+                <button onClick={handleReset} className='btn btn-primary w-full bg-linear-to-r from-sky-500 via-sky-400  to-sky-500  transition-all duration-300 font-semibold hover:scale-105 border-none text-gray-800 rounded-lg'>Send Reset Link</button>
 
                 <div className="mt-6 text-sm text-gray-800 text-center">
                     <p>
                         Remembered your password?{" "}
                         <button
                             onClick={() => navigate("/login")}
-                            className="text-green-500 hover:underline font-semibold cursor-pointer"
+                            className="text-sky-500 hover:underline font-semibold cursor-pointer"
                         >
                             Back to Login
                         </button>
