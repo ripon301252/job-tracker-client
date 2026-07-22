@@ -92,12 +92,12 @@ const Navbar = () => {
                 {avatarOpen && (
                   <div
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute -right-7 mt-15 w-52 bg-gradient-to-r from-sky-800/50 via-sky-900/50 to-sky-800/50 shadow-xl rounded-xl p-3 z-50"
+                    className="absolute -right-7 mt-15 w-52 bg-gradient-to-r from-sky-800/80 via-sky-900/80 to-sky-800/80 shadow-xl rounded-xl p-3 z-50"
                   >
-                    <p className="font-semibold text-gray-800 dark:text-white">
+                    <p className="font-semibold  text-white">
                       {user?.displayName || "User"}
                     </p>
-                    <p className="text-xs text-gray-500 break-all">
+                    <p className="text-xs text-gray-300 break-all">
                       {user?.email}
                     </p>
 
@@ -121,7 +121,7 @@ const Navbar = () => {
 
                     <button
                       onClick={handleLogout}
-                      className="w-full flex gap-1 items-center text-left px-3 py-2 rounded hover:bg-red-200 text-red-500 text-sm"
+                      className="w-full flex gap-1 items-center text-left px-3 py-2 rounded font-semibold hover:bg-sky-500/30  text-sm cursor-pointer"
                     >
                       <LogOut size={18} />
                       Logout

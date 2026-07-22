@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
     const resInterceptor = axiosSecure.interceptors.response.use(
       (response) => response,
       (error) => {
-        const statusCode = error.response?.status; // 🔥 FIX
+        const statusCode = error.response?.status; //  FIX
 
         if (statusCode === 401) {
           logOut().then(() => navigate("/login"));

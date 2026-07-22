@@ -4,8 +4,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import b1 from "../assets/b1.jpg";
 import b2 from "../assets/b2.jpg";
 import b3 from "../assets/b3.jpg";
+import { Link } from "react-router";
 
-const Banner = ({ setPage }) => {
+const Banner = () => {
   return (
     <div className="relative">
       <Carousel
@@ -31,43 +32,43 @@ const Banner = ({ setPage }) => {
 
             {/* 💎 Content */}
             <div className="absolute inset-0 flex items-center justify-center px-4">
-              <div className="backdrop-blur-xl bg-white/5 border border-white/10 
-              rounded-2xl p-6 md:p-10 text-center text-white max-w-3xl">
-
+              <div
+                className="backdrop-blur-xl bg-white/5 border border-white/10 
+              rounded-2xl p-6 md:p-10 text-center text-white max-w-3xl"
+              >
                 {/* 🔥 Heading */}
-                <h1 className="text-2xl md:text-5xl font-extrabold mb-3 
+                <h1
+                  className="text-2xl md:text-5xl font-extrabold mb-3 
                 bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 
-                bg-clip-text text-transparent">
+                bg-clip-text text-transparent"
+                >
                   Track Your Job Applications Easily
                 </h1>
 
                 {/* ✨ Sub text */}
                 <p className="text-gray-300 text-sm md:text-lg mb-8">
-                  Stay organized, monitor your job applications, and land your dream job faster.
+                  Stay organized, monitor your job applications, and land your
+                  dream job faster.
                 </p>
 
                 {/* ⚡ Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
-                  <button
-                    onClick={() => setPage("All Jobs")}
+                  <Link
+                    to="/myApplications"
                     className="px-6 py-3 rounded-lg font-semibold 
                     bg-gradient-to-r from-green-400 to-blue-500
                     hover:scale-105 active:scale-95 transition shadow-lg"
                   >
                     View Applications
-                  </button>
+                  </Link>
 
-                  <button
-                    onClick={() => setPage("Add Job")}
+                  <Link to="/addJob"
                     className="px-6 py-3 rounded-lg font-semibold 
                     bg-white/10 hover:bg-white/20 border border-white/10 transition"
                   >
                     Add New Job
-                  </button>
-
+                  </Link>
                 </div>
-
               </div>
             </div>
           </div>

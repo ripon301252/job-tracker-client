@@ -48,10 +48,10 @@ const AddJob = () => {
 
       await axiosAddJob.post("/applications", jobData);
 
-      toast.success("Job Added Successfully 🚀");
+      toast.success("Job Added Successfully ");
       navigate("/myApplications");
     } catch (error) {
-      toast.error("Failed to add job");
+      toast.error("Failed to add job", error);
     }
   };
 
@@ -144,7 +144,7 @@ const AddJob = () => {
             bg-gradient-to-r from-green-400 to-blue-500
             hover:scale-105 active:scale-95 transition shadow-lg"
           >
-            Add Job 🚀
+            Add Job 
           </button>
         </form>
       </div>
