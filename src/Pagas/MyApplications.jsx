@@ -13,7 +13,7 @@ const MyApplications = () => {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [editData, setEditData] = useState({});
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState("");
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -41,7 +41,7 @@ const MyApplications = () => {
           },
         });
 
-        setJobs(res.data);
+        setJobs(Array.isArray(res.data) ? res.data : res.data.applications || []);
         console.log(res.data);
         setCurrentPage(1);
       } catch (error) {
