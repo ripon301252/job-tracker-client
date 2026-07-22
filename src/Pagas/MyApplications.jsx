@@ -42,26 +42,35 @@ const MyApplications = () => {
         });
 
         setJobs(res.data);
-        setCurrentPage(1); //  reset page on filter
-      } catch {
-        toast.error("Failed to load jobs ");
+        setCurrentPage(1);
+      } catch (error) {
+        // 🔥 error check
+        if (error.response) {
+          const statusCode = error.response.status;
+
+          if (statusCode === 401) {
+            toast.error("Please login first");
+          } else if (statusCode === 403) {
+            toast.error("Access denied ");
+          } else if (statusCode === 404) {
+            toast.error("Data not found ");
+          } else if (statusCode === 500) {
+            toast.error("Server error");
+          } else {
+            toast.error("Something went wrong ");
+          }
+        } else if (error.request) {
+          toast.error("No response from server");
+        } else {
+          toast.error("Request failed");
+        }
+
+        console.log(error);
       }
     };
 
     fetchJobs();
   }, [axiosMyApplications, status, search]);
-
-  // useEffect(() => {
-  //   const fetchJobs = async () => {
-  //     try {
-  //       const res = await axiosMyApplications.get("/applications");
-  //       setJobs(res.data);
-  //     } catch {
-  //       toast.error("Failed to load jobs ");
-  //     }
-  //   };
-  //   fetchJobs();
-  // }, [axiosMyApplications]);
 
   const statusOptions = [
     { label: "All Status", value: "" },

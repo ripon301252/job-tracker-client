@@ -24,7 +24,7 @@ const Banner = () => {
             <img
               src={img}
               alt="banner"
-              className="w-full h-[350px] md:h-[400px] lg:h-[500px] object-cover"
+              className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
             />
 
             {/* 🔥 Overlay */}
