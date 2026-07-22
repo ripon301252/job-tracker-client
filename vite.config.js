@@ -8,7 +8,7 @@ export default defineConfig({
     open: true,
     proxy: {
       "/api": {
-        target: "http://localhost:3000", // backend server
+        target: "https://job-tracker-server-1.onrender.com/", // backend server
         changeOrigin: true,
         secure: false,
       }
