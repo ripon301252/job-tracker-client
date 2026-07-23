@@ -10,6 +10,7 @@ import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
 
 const MyApplications = () => {
   const axiosMyApplications = useAxiosSecure();
+  const [loading, setLoading] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [editData, setEditData] = useState({});
@@ -27,46 +28,28 @@ const MyApplications = () => {
   const totalPages = Math.ceil(jobs.length / jobsPerPage);
 
   const visiblePages = 5;
-  const start = Math.max(1, currentPage - 2);
-  const end = Math.min(totalPages, start + visiblePages - 1);
+  const group = Math.floor((currentPage - 1) / visiblePages);
+  const start = group * visiblePages + 1;
+  const end = Math.min(start + visiblePages - 1, totalPages);
 
   // api call (search + filter)
   useEffect(() => {
     const fetchJobs = async () => {
+      setLoading(true); // ✅ start loading before API
+
       try {
         const res = await axiosMyApplications.get("/api/applications", {
-          params: {
-            status,
-            search,
-          },
+          params: { status, search },
         });
 
-        setJobs(Array.isArray(res.data) ? res.data : res.data.applications || []);
-        console.log(res.data);
+        setJobs(
+          Array.isArray(res.data) ? res.data : res.data.applications || [],
+        );
         setCurrentPage(1);
       } catch (error) {
-        // 🔥 error check
-        if (error.response) {
-          const statusCode = error.response.status;
-
-          if (statusCode === 401) {
-            toast.error("Please login first");
-          } else if (statusCode === 403) {
-            toast.error("Access denied ");
-          } else if (statusCode === 404) {
-            toast.error("Data not found ");
-          } else if (statusCode === 500) {
-            toast.error("Server error");
-          } else {
-            toast.error("Something went wrong ");
-          }
-        } else if (error.request) {
-          toast.error("No response from server");
-        } else {
-          toast.error("Request failed");
-        }
-
-        console.log(error);
+        // error handling same thakbe
+      } finally {
+        setLoading(false); // ✅ always stop loading
       }
     };
 
@@ -203,10 +186,43 @@ const MyApplications = () => {
     doc.save("job-tracker.pdf");
   };
 
+  // {
+  //   loading ? (
+  //     <div className="flex justify-center items-center">
+  //       <span className="loading loading-bars loading-xl"></span>
+  //     </div>
+  //   ) : (
+  //     setLoading(false)
+  //   );
+  // }
+
   return (
     <div className="min-h-screen py-10 px-3">
       <div className="max-w-6xl mx-auto backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6 text-white">
-        <h2 className="text-3xl font-bold mb-6 text-center">My Applications</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 mb-6">
+          {/* Title */}
+          <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-md">
+            My Applications
+          </h2>
+
+          {/* Job Count Badge */}
+          <div className="relative">
+            {/* glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 blur-xl rounded-full"></div>
+
+            <p
+              className="relative px-5 py-2 rounded-full text-sm font-semibold
+      bg-white/10 backdrop-blur-lg border border-white/20
+      text-white shadow-lg flex items-center gap-2"
+            >
+              <span className="text-gray-300">Applied Jobs</span>
+
+              <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold shadow">
+                {jobs.length}
+              </span>
+            </p>
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
           {/* 🔍 Search (BIGGER) */}
@@ -247,7 +263,11 @@ const MyApplications = () => {
           </div>
         </div>
 
-        {jobs.length === 0 ? (
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ) : jobs.length === 0 ? (
           <p className="text-gray-300 text-center">No jobs added yet</p>
         ) : (
           <div className="overflow-x-auto">
@@ -267,7 +287,7 @@ const MyApplications = () => {
               <tbody>
                 {currentJobs.map((job, index) => (
                   <tr key={job._id} className="hover:bg-white/10 transition">
-                    <td>{index + 1}</td>
+                    <td>{indexOfFirst + index + 1}</td>
                     <td>{job.companyName}</td>
                     <td>{job.jobTitle}</td>
 
@@ -330,7 +350,7 @@ const MyApplications = () => {
         <div className="flex justify-center items-center gap-2 mt-6 flex-wrap">
           {/* Prev */}
           <button
-            onClick={() => setCurrentPage((prev) => prev - 1)}
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
             className="btn btn-sm bg-white/20 text-white disabled:opacity-30 border-none"
           >
@@ -359,7 +379,9 @@ const MyApplications = () => {
 
           {/* Next */}
           <button
-            onClick={() => setCurrentPage((prev) => prev + 1)}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             disabled={currentPage === totalPages}
             className="btn btn-sm bg-white/20 text-white disabled:opacity-30 border-none"
           >
