@@ -186,15 +186,6 @@ const MyApplications = () => {
     doc.save("job-tracker.pdf");
   };
 
-  // {
-  //   loading ? (
-  //     <div className="flex justify-center items-center">
-  //       <span className="loading loading-bars loading-xl"></span>
-  //     </div>
-  //   ) : (
-  //     setLoading(false)
-  //   );
-  // }
 
   return (
     <div className="min-h-screen py-10 px-3">
@@ -264,8 +255,17 @@ const MyApplications = () => {
         </div>
 
         {loading ? (
-          <div className="flex justify-center items-center py-20">
-            <span className="loading loading-bars loading-xl"></span>
+          // <div className="flex justify-center items-center py-20">
+          //   <span className="loading loading-bars loading-xl"></span>
+          // </div>
+          // ============================
+          <div className="space-y-3">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="h-10 bg-white/10 animate-pulse rounded"
+              ></div>
+            ))}
           </div>
         ) : jobs.length === 0 ? (
           <p className="text-gray-300 text-center">No jobs added yet</p>
